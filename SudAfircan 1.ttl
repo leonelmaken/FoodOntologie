@@ -1,0 +1,819 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/owl/owlapi/turtle#"
+     xml:base="http://www.semanticweb.org/owl/owlapi/turtle"
+     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/owl/owlapi/turtle#estComposeDe -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#estComposeDe"/>
+    
+
+
+    <!-- http://www.semanticweb.org/owl/owlapi/turtle#estOriginaireDe -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#estOriginaireDe"/>
+    
+
+
+    <!-- http://www.semanticweb.org/owl/owlapi/turtle#estPrepareAvec -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#estPrepareAvec"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#aPourSaison -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#aPourSaison">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Saison"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#consomBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#consomBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#estComposeDe -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#estComposeDe">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#estPrepareAvec -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#estPrepareAvec">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Technique"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#isFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#isFrom">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#RegionOrigine"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#produitTypique -->
+
+    <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#produitTypique">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Allergenes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#Allergenes">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Remarques -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#Remarques">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#astuces -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#astuces">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Technique"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#climat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#climat">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Saison"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Technique"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasImage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasImage">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hasOrigine -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasOrigine">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#nom -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#nom">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#RegionOrigine"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#quantite -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#quantite">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#tempsDepreparation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#tempsDepreparation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Technique"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#type">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#valeurNutritive -->
+
+    <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#valeurNutritive">
+        <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#FoodComponant -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#FoodComponant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">appors nutritif du plat</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutritioniste -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutritioniste">
+        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Person -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Person"/>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Saison -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Saison">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Saison dans laquelle on retourve un ingrédient</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:label>FoodIngredient</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/owl/owlapi/turtle#Foods -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#Foods">
+        <estComposeDe rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Ingredient"/>
+        <estOriginaireDe rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#RegionOrigine"/>
+        <estPrepareAvec rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Technique"/>
+        <rdfs:label>Food</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/owl/owlapi/turtle#RegionOrigine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#RegionOrigine">
+        <rdfs:label>Région d&apos;Origine</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/owl/owlapi/turtle#Technique -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#Technique">
+        <rdfs:label>Technique</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Automne -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Automne">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Saison"/>
+        <ont:climat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L&apos;automne est une saison douce et ensoleillee en Afrique du Sud</ont:climat>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les températures baissent progressivement et les journées raccourcissent.
+Les feuilles des arbres commencent à changer de couleur.
+C&apos;est le moment idéal pour visiter le Kruger National Park pour observer la faune sauvage et profiter des safaris</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Ete -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Ete">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Saison"/>
+        <ont:climat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L&apos;été est la saison la plus chaude et la plus humide en Afrique du Sud</ont:climat>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les températures varient de 25°C à 35°C (77°F à 95°F) dans les régions intérieures et de 20°C à 30°C (68°F à 86°F) le long de la côte.
+Les pluies sont fréquentes, surtout dans les régions intérieures.
+C&apos;est le moment idéal pour profiter des plages d&apos;Afrique du Sud, faire de la randonnée dans les montagnes et observer la faune sauvage dans les parcs nationaux</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Hiver -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Hiver">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Saison"/>
+        <ont:climat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L&apos;hiver est la saison la plus sèche en Afrique du Sud.</ont:climat>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les températures varient de 10°C à 20°C (50°F à 68°F) dans les régions intérieures et de 15°C à 25°C (59°F à 77°F) le long de la côte.
+Le ciel est généralement ensoleillé avec peu de précipitations.
+C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidental et profiter des activités hivernales comme le ski et la randonnée.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr11"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sel et poivre</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">au goût</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr4"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Œufs</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I11">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr3"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Viande hachée</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">500g (boeuf, agneau ou porc)</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I12">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I14"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I15"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I16"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I17"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I18"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I19"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I2"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I7"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Curry</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I13">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person1"/>
+        <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person2"/>
+        <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person3"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr1"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pain</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">demi pain</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I14 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I14">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr13"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Huile d&apos;olive</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2 cuillière</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I15 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I15">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">d&apos;ail</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2 gousses</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I16 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I16">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gingembre frais</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I17 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I17">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">curcuma en poudre</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I18 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I18">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:nom>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cumin en poudre</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I19 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I19">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">coriandre en poudre</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr10"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cannelle</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I3">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr9"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Noix de muscade</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 pincée</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I4">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr8"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Confiture d&apos;abricots</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2 cuillères à soupe</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I5">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr7"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raisins secs</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">50g</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I6">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr6"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Abricots secs</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100g, hachés</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I7">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr3"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oignons</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2, hachés</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I8">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr2"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lait</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">250ml</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#I9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I9">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr1"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chapelure</ont:nom>
+        <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">50g</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr1">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person1"/>
+        <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person2"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le pain est un aliment de base qui est consommé dans le monde entier depuis des siècles. La région d&apos;origine de la chapelure est donc difficile à déterminer.</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr10">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La cannelle est une épice originaire du Sri Lanka.</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr11 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr11">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le sel est un minéral naturel qui est présent dans de nombreuses régions du monde.</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr12 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr12">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le poivre est une épice originaire d&apos;Inde.</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr13 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr13">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Olive</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr2">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le lait est un produit d&apos;origine animale qui est consommé dans le monde entier. Il provient généralement de vaches, qui sont élevées dans des fermes à travers le monde</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr3">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">L&apos;élevage de bovins, d&apos;ovins et de porcs est pratiqué dans tout le monde, il est donc difficile de déterminer une région d&apos;origine précise pour la viande hachée.</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr4">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les œufs sont un produit d&apos;origine animale qui est consommé dans le monde entier. Ils proviennent généralement de poules domestiques, qui sont élevées dans des fermes à travers le monde</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr5">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les oignons sont originaires d&apos;Asie centrale et d&apos;Iran. Ils sont aujourd&apos;hui cultivés dans le monde entier</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr6">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les abricots secs sont originaires d&apos;Asie centrale. Ils sont aujourd&apos;hui cultivés dans de nombreuses régions du monde, notamment en Californie, en Turquie et en Iran</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr7">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les raisins secs sont originaires d&apos;Asie occidentale. Ils sont aujourd&apos;hui cultivés dans de nombreuses régions du monde, notamment en Californie, en Turquie et en Grèce</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr8">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La confiture d&apos;abricots est une confiture à base d&apos;abricots, de sucre et d&apos;autres ingrédients. La région d&apos;origine de la confiture d&apos;abricots est difficile à déterminer, car elle est fabriquée dans de nombreuses régions du monde</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nutr9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutr9">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La noix de muscade est une épice originaire des îles Moluques en Indonésie</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Plat1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Plat1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person1"/>
+        <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person3"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I1"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I10"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I11"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I2"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I3"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I4"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I5"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I6"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I7"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I8"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I9"/>
+        <ont:estPrepareAvec rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Technique1"/>
+        <ont:isFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Region1"/>
+        <ont:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bobotie: Un plat national sud-africain
+
+Le bobotie est un plat traditionnel sud-africain à base de viande hachée, de fruits secs et d&apos;épices. Il est généralement servi avec du riz ou des pommes de terre.
+
+Le bobotie est un plat copieux et savoureux qui est apprécié par les familles sud-africaines depuis des générations. Il est souvent servi lors d&apos;occasions spéciales, telles que les fêtes et les mariages.</ont:hasDescription>
+        <ont:hasOrigine rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Origine du Bobotie
+
+Le bobotie est originaire d&apos;Indonésie, où il est connu sous le nom de &quot;bobotok&quot;.
+
+Le bobotok est un plat à base de viande hachée, de noix de coco et d&apos;épices. Il a été apporté en Afrique du Sud par les Malais du Cap au 17ème siècle.
+
+Les Malais du Cap sont un groupe ethnique descendant d&apos;esclaves et de déportés politiques d&apos;Indonésie et de Malaisie. Ils ont apporté avec eux leur culture et leur cuisine, qui ont influencé la cuisine sud-africaine de plusieurs façons.</ont:hasOrigine>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bobotie</ont:nom>
+        <ont:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">traditionnel</ont:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Plat2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Plat2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I13"/>
+        <ont:estPrepareAvec rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Technique2"/>
+        <ont:isFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Region1"/>
+        <ont:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le Bunny Chow est un plat unique et savoureux originaire d&apos;Afrique du Sud. Il se compose de deux éléments principaux :Traditionnellement, un demi-pain blanc est creusé pour servir de récipient pour le curry.Le bunny chow peut contenir une grande variété de currys, allant du mouton épicé au poulet doux, en passant par des options végétariennes aux légumes et aux lentilles.</ont:hasDescription>
+        <ont:hasOrigine rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Origine: Le Bunny Chow a été inventé dans les années 1940 par la communauté indienne de Durban. Il s&apos;est ensuite répandu dans tout le pays et est devenu un plat populaire auprès des Sud-Africains de tous horizons.</ont:hasOrigine>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bunny chow</ont:nom>
+        <ont:type rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Traditionnel</ont:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Printemps -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Printemps">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Saison"/>
+        <ont:climat rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Le printemps est une saison de transition en Afrique du Sud</ont:climat>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les températures augmentent progressivement et les journées s&apos;allongent.
+Les fleurs sauvages commencent à fleurir dans le veld.
+C&apos;est le moment idéal pour visiter le Namaqualand pour voir ses célèbres champs de fleurs sauvages</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Region1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Region1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#RegionOrigine"/>
+        <ont:hasOrigine rdf:datatype="http://www.w3.org/2001/XMLSchema#string">indonesie</ont:hasOrigine>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Technique1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Technique1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Technique"/>
+        <ont:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Préchauffer le four à 180°C (350°F).Dans un bol, mélanger la viande hachée, les œufs, la chapelure, le lait, les oignons, les abricots secs, les raisins secs, la confiture d&apos;abricots, la noix de muscade, la cannelle, le sel et le poivre.Presser le mélange dans un plat allant au four.Cuire au four pendant 1 heure.Servir avec du riz ou des pommes de terre.</ont:hasDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Technique2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Technique2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Technique"/>
+        <ont:hasDescription rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Creusez le demi-pain pour en retirer la mie.
+Dans une casserole, faites chauffer l&apos;huile d&apos;olive et faites revenir l&apos;oignon, l&apos;ail et le gingembre pendant 5 minutes.
+Ajoutez les épices et laissez cuire pendant 1 minute.
+Ajoutez les tomates concassées, le bouillon de poulet et le poulet.
+Portez à ébullition, puis laissez mijoter à feu doux pendant 20 minutes, jusqu&apos;à ce que le poulet soit cuit.
+Assaisonnez avec du sel et du poivre.
+Remplissez le pain creux avec le curry.
+Garnissez avec la coriandre, les oignons rouges, les tomates, le chutney, les samoussas et les frites (facultatif).
+Servez chaud et dégustez !</ont:hasDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#person1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#person1">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutritioniste"/>
+        <ont:nom>Jason</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#person2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#person2">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutritioniste"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Adan</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#person3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#person3">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutritioniste"/>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eve</ont:nom>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
