@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Lien CDN pour Font Awesome -->    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>SUD-ARICA-FOOD</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            outline: none; /* Supprime le contour par défaut */
+        }
+        
+        .button-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+        
+        #add-remove-section {
+            margin-bottom: 20px;
+        }
+        
+        /* Ajout de marges supplémentaires pour éviter que les sections ne cachent le menu déroulant */
+        #ingredients-section,
+        #nutriments-section {
+            margin-top: 50px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-container">
+            <button class="menu-btn">Menu</button>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#" id="show-classes">All Classes</a></li>
+                    <li><a href="#" id="show-meals">All Foods</a></li>
+                    <li><a href="#" id="show-nutrients">Ingredients</a></li>
+                    <li><a href="#" id="show-people">Person</a></li>
+                    <li><a href="#" id="show-ingredients">Nutriments</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h1><i class="fas fa-utensils"></i>SUD-ARICA-FOOD</h1>
+    </header>
+    
+    <main>
+        <section id="search-section">
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Recherche...">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+        </section>
+        
+        <section id="results-section">
+            <!-- Section pour afficher les résultats des requêtes SPARQL -->
+            <div class="result-cards" id="meal-results">
+                <!-- Les résultats seront affichés ici -->
+            </div>
+        </section>
+        <section id="results-classes">
+            <!-- Section pour afficher les résultats de toutes les classes de l'ontologie -->
+            <div class="result-cards" id="classes">
+                <!-- Les résultats seront affichés ici -->
+            </div>
+        </section>
+        
+        
+        <section id="add-remove-section">
+            <div class="button-container">
+                <button id="add-ingredient-btn" onclick="window.location.href='ingredient.html';">Ajouter un ingrédient</button>
+                <button id="add-dish-btn" onclick="window.location.href='Formulaire.html';">Ajouter un plat</button>
+            </div>
+        </section>
+        
+        
+        <section id="ingredients-section">
+            <div class="card-columns" id="ingredient-cards">
+                <!-- Les ingrédients seront affichés ici -->
+            </div>
+        </section>
+        
+        <!-- Section pour afficher les nutriments dans des cartes Bootstrap -->
+        <section id="nutriments-section">
+            <div class="card-columns">
+                <!-- Les nutriments seront affichés ici -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Pied de page -->
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script2.js"></script>
+    <script src="classes.js"></script>
+</body>
+</html>

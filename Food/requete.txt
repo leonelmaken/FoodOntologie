@@ -1,0 +1,219 @@
+/***retourne tous les plats*************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.semanticweb.org/owl/owlapi/turtle#>
+
+SELECT DISTINCT ?food ?nom ?description
+WHERE {
+  ?food rdf:type ont:Foods.
+  OPTIONAL { ?food ont:nom ?nom }
+  OPTIONAL { ?food ont:description ?description }
+}
+/***********affiche le nom de tous les repas *********************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX onto: <http://www.semanticweb.org/owl/owlapi/turtle#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT ?nom WHERE {
+  ?plat rdf:type onto:Foods .
+  ?plat ont:nom ?nom .
+}
+/***********Non de chaque plat et sa description *********************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX onto: <http://www.semanticweb.org/owl/owlapi/turtle#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT ?nom ?description WHERE {
+  ?plat rdf:type onto:Foods .
+  ?plat ont:nom ?nom .
+  ?plat ont:description ?description .
+}
+/***********affiche le nom du plat et ses ingredients *********************/
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?plat_nom ?ingredient_nom
+WHERE {
+  ont:Plat1 ont:nom ?plat_nom .
+  ont:Plat1 ont:estComposeDe ?ingredient .
+  ?ingredient ont:nom ?ingredient_nom .
+}
+/***********affiche tous les ingredients *********************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT ?ingredient_nom
+WHERE {
+  ?ingredient rdf:type ont:FoodComponant ;
+              ont:nom ?ingredient_nom .
+}
+/***********affiche tous les nutriments *********************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT ?nutriment_nom
+WHERE {
+  ?nutriment rdf:type ont:FoodComponant ;
+              ont:nom ?nutriment_nom .
+}
+/***********affiche tous un plat et sa technique de cuison *********************/
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT ?plat_nom ?technique_description
+WHERE {
+  ont:Plat1 ont:nom ?plat_nom ;
+            ont:estPrepareAvec ?technique .
+  
+  ?technique ont:description ?technique_description .
+}
+/************************requete pour ajouter un plat****************/
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+INSERT DATA
+{
+    ont:Plat3 rdf:type ont:Foods ;
+             ont:estComposeDe ont:I1, ont:I2 ;
+             ont:estPrepareAvec ont:Technique3 ;
+             ont:isFrom ont:Region1 ;
+             ont:description "Patisserie originaire d'Indonésie"^^xsd:string ;
+             ont:nom "SultanaCake"^^xsd:string ;
+             ont:hasImage <file:///home/leonelmaken/Documents/WebSemantique/Food/images/sultana%20cake.jpg> .
+}
+/***********************retourne tous les nouveaux plats ajoutés dans la BD**************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT DISTINCT ?plat ?nom ?description ?image
+WHERE {
+  ?plat rdf:type ont:Foods.
+  OPTIONAL { ?plat ont:nom ?nom }
+  OPTIONAL { ?plat ont:description ?description }
+  OPTIONAL { ?plat ont:hasImage ?image }
+}
+/*****************recherche un plat à partir de son plat******************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?plat ?ingredient ?technique ?region ?description ?image
+WHERE {
+  ?plat rdf:type ont:Foods ;
+        ont:nom "SultanaCake"^^xsd:string ;
+        ont:estComposeDe ?ingredient ;
+        ont:estPrepareAvec ?technique ;
+        ont:isFrom ?region ;
+        ont:description ?description ;
+        ont:hasImage ?image .
+}
+/********************************affiche les classe de mon ontologie****************/
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT DISTINCT ?class
+WHERE {
+  ?class rdf:type owl:Class .
+}
+/*****************************ajoute un ingredient***********************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT DATA
+{
+    ont:Avocado rdf:type ont:Ingredient ;
+                ont:nom "Avocat"^^xsd:string ;
+                ont:description "Fruit en forme de poire, avec une peau verte ou noire, une chair tendre et crémeuse et un noyau central. Il est souvent utilisé dans la cuisine pour sa texture riche et son goût doux."^^xsd:string ;
+                ont:hasImage <file:///home/leonelmaken/Documents/WebSemantique/Food/images/Avocado.jpg> ;
+                ont:origine "Originaire d'Amérique centrale et du Sud, mais maintenant cultivé dans de nombreuses régions tropicales et subtropicales du monde entier."^^xsd:string ;
+                ont:saison "Disponible toute l'année."^^xsd:string .
+}
+/********************************recherche un ingredient**************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?ingredient ?description ?image ?origine ?saison
+WHERE {
+  ?ingredient rdf:type ont:Ingredient ;
+              ont:nom "Avocat"^^xsd:string ;
+              ont:description ?description ;
+              ont:hasImage ?image ;
+              ont:origine ?origine ;
+              ont:saison ?saison .
+}
+/***********************************lister les ingredients d'un plat***********/
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT ?ingredient
+WHERE {
+  ?plat rdf:type ont:Foods ;
+        ont:nom "Guacamole"^^xsd:string ;
+        ont:estComposeDe ?ingredient .
+}
+
+/*******************************************crée l objet avant de créer l'ingredient****************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT DATA
+{
+    # Création de l'objet de type FoodIngredient
+    _:ingredientInstance rdf:type ont:FoodIngredient .
+
+    # Création de l'individu de type Ingredient et ses propriétés
+    ont:Avocado rdf:type ont:Ingredient ;
+                ont:nom "Avocat2"^^xsd:string ;
+                ont:description "Fruit en forme de poire, avec une peau verte ou noire, une chair tendre et crémeuse et un noyau central. Il est souvent utilisé dans la cuisine pour sa texture riche et son goût doux."^^xsd:string ;
+                ont:hasImage <file:///home/leonelmaken/Documents/WebSemantique/Food/images/Avocado.jpg> ;
+                ont:origine "Originaire d'Amérique centrale et du Sud, mais maintenant cultivé dans de nombreuses régions tropicales et subtropicales du monde entier."^^xsd:string ;
+                ont:saison "Disponible toute l'année."^^xsd:string ;
+                ont:estComposeDe _:ingredientInstance . # Liaison avec l'objet de type FoodIngredient
+}
+/***********************************ajoute un plat en créant un objet*************************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+2
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+3
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+4
+​
+5
+INSERT DATA
+6
+{
+7
+    # Création de l'objet de type Food
+8
+    _:foodInstance rdf:type ont:Foods .
+9
+​
+10
+    # Création de l'individu de type Food (Plat) et ses propriétés
+11
+    ont:Plat3 rdf:type ont:Foods ;
+12
+             ont:estComposeDe ont:I1, ont:I2 ;
+13
+             ont:estPrepareAvec ont:Technique3 ;
+14
+             ont:isFrom ont:Region1 ;
+15
+             ont:description "Patisserie originaire d'Indonésie"^^xsd:string ;
+16
+             ont:nom "SultanaCake"^^xsd:string ;
+17
+             ont:hasImage <file:///home/leonelmaken/Documents/WebSemantique/Food/images/sultana%20cake.jpg> ;
+18
+             ont:estComposeDe _:foodInstance . # Liaison avec l'objet de type Food
+19
+}
+20
+​
+
+

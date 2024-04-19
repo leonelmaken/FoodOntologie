@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Ingredient Form</title>
+<style>
+    /* Styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    textarea {
+        width: calc(100% - 22px);
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid #ccc; /* Ajout d'une bordure uniquement en bas */
+        border-radius: 0;
+        box-sizing: border-box;
+        font-size: 16px;
+        outline: none; /* Retire la luminosité noire */
+    }
+    textarea {
+        height: 100px;
+        resize: none;
+    }
+    button[type="submit"],
+    button[type="reset"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: 1px solid #4CAF50; /* Ajout d'une bordure */
+        border-radius: 4px;
+        cursor: pointer;
+        width: 48%;
+        font-size: 16px;
+    }
+    button[type="submit"]:hover,
+    button[type="reset"]:hover {
+        background-color: #45a049;
+    }
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+    }
+    /* Animations */
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    form {
+        animation: slideInFromLeft 0.5s ease-in-out;
+    }
+</style>
+<script src="script2.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Create a New Ingredient</h2>
+        <form id="ingredient-form" onsubmit="event.preventDefault(); addIngredient();">
+            <div class="form-group">
+                <label for="name">Name of the ingredient:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="image">Image of the ingredient:</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description of the ingredient:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="origin">Region of origin of the ingredient:</label>
+                <input type="text" id="origin" name="origin" required>
+            </div>
+            <div class="form-group">
+                <label for="season">Season of the ingredient:</label>
+                <input type="text" id="season" name="season" required>
+            </div>
+            <div class="form-group">
+                <label for="nutrient">Nutrient originating from the ingredient:</label>
+                <input type="text" id="nutrient" name="nutrient" required>
+            </div>
+            <div class="button-group">
+                <button  id="add-ingredient-btn" type="submit">Create Ingredient</button>
+                <button type="reset" onclick="window.location.href='food.html';">Cancel</button>
+            </div>
+        </form>
+    </div>
+    
+    
+
+</body>
+</html>

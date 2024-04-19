@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3; /* Nouvelle couleur de fond */
+}
+
+header {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-btn {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none; /* Supprime le contour par défaut */
+}
+
+nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #2ecc71;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #2ecc71;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Styles spécifiques pour les différentes sections peuvent être ajoutés ici */
+
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#search-bar {
+    padding: 8px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#search-button {
+    background-color: #2ecc71;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none; /* Supprime le contour par défaut */
+    border: none; /* Supprime le style du bord */
+}
+
+#results-section {
+    margin-top: 180px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+}
+
+.result-card {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+/* Ajoutez ces styles CSS pour que les images aient une largeur maximale de 50% */
+.result-card img {
+    max-width: 50%;
+    height: auto; /* Garantit que les proportions de l'image sont respectées */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Animation de transformation */
+}
+
+.card-columns {
+    column-count: 4;
+    column-gap: 20px;
+}
+
+.card {
+    width: auto;
+    break-inside: avoid-column;
+}

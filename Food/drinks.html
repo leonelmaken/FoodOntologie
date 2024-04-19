@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Drink Form</title>
+<style>
+    /* Styles */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    textarea {
+        width: calc(100% - 22px);
+        padding: 10px;
+        border: none;
+        border-bottom: 1px solid #ccc; /* Ajout d'une bordure uniquement en bas */
+        border-radius: 0;
+        box-sizing: border-box;
+        font-size: 16px;
+        outline: none; /* Retire la luminosité noire */
+    }
+    textarea {
+        height: 100px;
+        resize: none;
+    }
+    button[type="submit"],
+    button[type="reset"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none; /* Retire la bordure */
+        border-radius: 4px;
+        cursor: pointer;
+        width: 48%;
+        font-size: 16px;
+    }
+    button[type="submit"]:hover,
+    button[type="reset"]:hover {
+        background-color: #45a049;
+    }
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+    }
+    .ingredient-container {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+    }
+    /* Animations */
+    @keyframes slideInFromLeft {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    form {
+        animation: slideInFromLeft 0.5s ease-in-out;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Create a New Drink</h2>
+    <form action="process.php" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Name of the drink:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="image">Image of the drink:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+        <div id="ingredients-container">
+            <div class="ingredient-container">
+                <div class="form-group">
+                    <label for="ingredient1">Ingredient Name:</label>
+                    <input type="text" id="ingredient1" name="ingredient[]" required>
+                </div>
+                <div class="form-group">
+                    <label for="ingredient-image1">Ingredient Image:</label>
+                    <input type="file" id="ingredient-image1" name="ingredient-image[]" accept="image/*" required>
+                </div>
+            </div>
+        </div>
+        <button type="button" onclick="addIngredient()">Add Ingredient</button>
+        <div class="form-group">
+            <label for="description">Description of the drink:</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="button-group">
+            <button type="submit">Create Drink</button>
+            <button type="reset" onclick="window.location.href='Food.html';">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    let ingredientCount = 1;
+
+    function addIngredient() {
+        ingredientCount++;
+        const container = document.getElementById('ingredients-container');
+        const newIngredientContainer = document.createElement('div');
+        newIngredientContainer.classList.add('ingredient-container');
+        newIngredientContainer.innerHTML = `
+            <div class="form-group">
+                <label for="ingredient${ingredientCount}">Ingredient Name:</label>
+                <input type="text" id="ingredient${ingredientCount}" name="ingredient[]" required>
+            </div>
+            <div class="form-group">
+                <label for="ingredient-image${ingredientCount}">Ingredient Image:</label>
+                <input type="file" id="ingredient-image${ingredientCount}" name="ingredient-image[]" accept="image/*" required>
+            </div>
+        `;
+        container.appendChild(newIngredientContainer);
+    }
+</script>
+
+</body>
+</html>
