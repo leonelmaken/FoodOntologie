@@ -44,6 +44,10 @@ nav {
     border-radius: 5px;
 }
 
+nav.active {
+    display: block;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -135,4 +139,117 @@ footer {
 .card {
     width: auto;
     break-inside: avoid-column;
+}
+/* Styles pour les cartes Bootstrap */
+.food-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.food-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.food-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.food-card p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.food-card .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.food-card .btn:hover {
+    background-color: #0056b3;
+}
+ /* Style pour la section de requêtes SPARQL */
+ #sparql-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+/* Style pour le formulaire */
+#sparql-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+#sparql-form label {
+    font-weight: bold;
+}
+
+#sparql-form textarea {
+    resize: none;
+}
+
+#sparql-form button[type="submit"] {
+    margin-top: 20px;
+}
+
+/* Style pour les résultats de la requête SPARQL */
+#sparql-results {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+#sparql-results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#sparql-results th,
+#sparql-results td {
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#sparql-results th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+/* Animation lors du survol du bouton */
+#sparql-form button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation pour les résultats */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
 }

@@ -17,6 +17,34 @@
             justify-content: space-around;
             outline: none; /* Supprime le contour par défaut */
         }
+        .class-button {
+            margin: 5px; /* Espacement entre les boutons */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .class-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Animation lors du survol */
+        .class-button:hover {
+            transform: translateX(5px); /* Avancer */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); /* Ombre */
+        }
+
+        /* Conteneur des boutons */
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            outline: none; /* Supprime le contour par défaut */
+        }
         
         .button-container button {
             padding: 10px 20px;
@@ -41,6 +69,14 @@
         #nutriments-section {
             margin-top: 50px; /* Vous pouvez ajuster cette valeur selon vos besoins */
         }
+        h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif; /* Exemple de famille de police */
+    font-size: 1.5rem; /* Taille de police */
+    text-align: center; /* Alignement au centre */
+}
+
     </style>
 </head>
 <body>
@@ -53,7 +89,6 @@
                     <li><a href="#" id="show-meals">All Foods</a></li>
                     <li><a href="#" id="show-nutrients">Ingredients</a></li>
                     <li><a href="#" id="show-people">Person</a></li>
-                    <li><a href="#" id="show-ingredients">Nutriments</a></li>
                 </ul>
             </nav>
         </div>
@@ -75,10 +110,10 @@
             </div>
         </section>
         <section id="results-classes">
-            <!-- Section pour afficher les résultats de toutes les classes de l'ontologie -->
-            <div class="result-cards" id="classes">
-                <!-- Les résultats seront affichés ici -->
-            </div>
+           <!-- Section pour afficher les résultats de toutes les classes de l'ontologie -->
+           <div class="button-container" id="classes">
+            <!-- Les boutons de classe seront affichés ici -->
+        </div>
         </section>
         
         
@@ -89,19 +124,58 @@
             </div>
         </section>
         
-        
+        <h3>All Person</h3>
+        <section id="person-section">
+            <div class="card-columns" id="person-cards">
+                <!-- Les Personnes seront affichés ici -->
+            </div>
+        </section>
+        <h3>All Ingredients</h3>
         <section id="ingredients-section">
             <div class="card-columns" id="ingredient-cards">
                 <!-- Les ingrédients seront affichés ici -->
             </div>
         </section>
-        
-        <!-- Section pour afficher les nutriments dans des cartes Bootstrap -->
-        <section id="nutriments-section">
+        <h3>All Foods</h3>
+        <!-- Section pour afficher les foods dans des cartes Bootstrap -->
+        <section id="food-section">
             <div class="card-columns">
-                <!-- Les nutriments seront affichés ici -->
+                <!-- Les aliments seront affichés ici -->
             </div>
         </section>
+      <!-- Section pour éffectuer les requêtes SPARQL -->
+      <section id="sparql-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h3>Requêtes SPARQL</h3>
+                    <!-- Formulaire pour saisir les requêtes SPARQL -->
+                    <form id="sparql-form">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label for="operation-input">Type d'opération (SELECT, INSERT, DELETE) :</label>
+                                <input type="text" class="form-control" id="operation-input">
+                            </div>
+                            
+                        <div class="form-group">
+                            <label for="query-input">Entrez votre requête SPARQL :</label>
+                            <textarea class="form-control" id="query-input" rows="5"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Exécuter la requête</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h4>Résultats de la requête SPARQL</h4>
+                    <!-- Section pour afficher les résultats de la requête SPARQL -->
+                    <div id="sparql-results"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
     </main>
     <footer>
         <!-- Pied de page -->
@@ -112,5 +186,22 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script2.js"></script>
     <script src="classes.js"></script>
+    <script src="meals.js"></script>
+    <script src="nutriments.js"></script>
+    <script src="person.js"></script>
+    <script src="shear.js"></script>
+    <script src="sparql.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.menu-btn');
+            const navMenu = document.querySelector('#nav-menu');
+    
+            menuBtn.addEventListener('click', function() {
+                // Toggle la classe 'active' pour afficher ou masquer le menu
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+    
 </body>
 </html>

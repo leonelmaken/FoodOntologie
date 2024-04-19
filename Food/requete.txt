@@ -213,7 +213,44 @@ INSERT DATA
              ont:estComposeDe _:foodInstance . # Liaison avec l'objet de type Food
 19
 }
-20
+/**********************cette requette retourne les noms de toutes les classes et sous classes de mon ontologies ********************************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?className
+WHERE {
+  {
+    ?class rdf:type owl:Class .
+    BIND(STRAFTER(str(?class), "#") AS ?className)
+  } UNION {
+    ?subclass rdfs:subClassOf ?class .
+    ?subclass rdf:type owl:Class .
+    FILTER(?subclass != ?class)
+    BIND(STRAFTER(str(?subclass), "#") AS ?className)
+  }
+}
+/******************************************requete pour créer une personne********************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+INSERT DATA {
+    ont:Person1 rdf:type ont:Person ;
+                ont:nom "Ana"^^xsd:string ;
+                ont:hasImage <file:///home/leonelmaken/Documents/WebSemantique/Food/images/ana.jpg> ;
+                ont:consomBy ont:Braai .
+}
+/***************************retourne toutes les personnes de jena****************************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT ?person ?nom ?image
+WHERE {
+  ?person rdf:type ont:Person ;
+          ont:nom ?nom ;
+          ont:hasImage ?image .
+}
 ​
 
 
