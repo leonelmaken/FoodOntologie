@@ -54,7 +54,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#aPourSaison -->
 
     <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#aPourSaison">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Saison"/>
     </owl:ObjectProperty>
     
@@ -73,7 +73,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#estComposeDe">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
     </owl:ObjectProperty>
     
 
@@ -100,7 +100,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#produitTypique -->
 
     <owl:ObjectProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#produitTypique">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <rdfs:range rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodComponant"/>
     </owl:ObjectProperty>
     
@@ -166,8 +166,8 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#hasImage -->
 
     <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasImage">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -176,8 +176,8 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#hasOrigine -->
 
     <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#hasOrigine">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -187,9 +187,9 @@
 
     <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#nom">
         <rdfs:domain rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Person"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#RegionOrigine"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -198,7 +198,7 @@
     <!-- http://www.co-ode.org/ontologies/ont.owl#quantite -->
 
     <owl:DatatypeProperty rdf:about="http://www.co-ode.org/ontologies/ont.owl#quantite">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -251,6 +251,12 @@
     
 
 
+    <!-- http://www.co-ode.org/ontologies/ont.owl#FoodIngredient -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#FoodIngredient"/>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#Nutritioniste -->
 
     <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Nutritioniste">
@@ -269,15 +275,6 @@
 
     <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#Saison">
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Saison dans laquelle on retourve un ingrédient</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
-        <rdfs:label>FoodIngredient</rdfs:label>
     </owl:Class>
     
 
@@ -309,6 +306,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/owl/owlapi/turtle#dishes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/owl/owlapi/turtle#dishes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#Foods"/>
+        <rdfs:label>dishes</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -328,6 +334,19 @@
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Les températures baissent progressivement et les journées raccourcissent.
 Les feuilles des arbres commencent à changer de couleur.
 C&apos;est le moment idéal pour visiter le Kruger National Park pour observer la faune sauvage et profiter des safaris</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Cape_Malay_Curry -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Cape_Malay_Curry">
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Ingredient3"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ingredient2"/>
+        <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#ingredient4"/>
+        <ont:hasImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/Cape%20Malay%20Curry.jpg</ont:hasImage>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cape Malay Curry</ont:nom>
     </owl:NamedIndividual>
     
 
@@ -359,8 +378,9 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I1 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I1">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr11"/>
+        <ont:hasImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/Boerewors.png</ont:hasImage>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sel et poivre</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">au goût</ont:quantite>
     </owl:NamedIndividual>
@@ -370,7 +390,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I10 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I10">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr4"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Œufs</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2</ont:quantite>
@@ -381,7 +401,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I11 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I11">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr3"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Viande hachée</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">500g (boeuf, agneau ou porc)</ont:quantite>
@@ -392,7 +412,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I12 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I12">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I14"/>
         <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I15"/>
         <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#I16"/>
@@ -409,7 +429,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I13 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I13">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person1"/>
         <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person2"/>
         <ont:consomBy rdf:resource="http://www.co-ode.org/ontologies/ont.owl#person3"/>
@@ -423,7 +443,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I14 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I14">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:estComposeDe rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr13"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Huile d&apos;olive</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2 cuillière</ont:quantite>
@@ -434,7 +454,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I15 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I15">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">d&apos;ail</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2 gousses</ont:quantite>
     </owl:NamedIndividual>
@@ -444,7 +464,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I16 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I16">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gingembre frais</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:quantite>
     </owl:NamedIndividual>
@@ -454,7 +474,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I17 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I17">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">curcuma en poudre</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:quantite>
     </owl:NamedIndividual>
@@ -464,7 +484,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I18 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I18">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:nom>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cumin en poudre</ont:nom>
     </owl:NamedIndividual>
@@ -474,7 +494,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I19 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I19">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">coriandre en poudre</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:quantite>
     </owl:NamedIndividual>
@@ -484,7 +504,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I2 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I2">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr10"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cannelle</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 cuillère à café</ont:quantite>
@@ -495,7 +515,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I3 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I3">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr9"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Noix de muscade</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1 pincée</ont:quantite>
@@ -506,7 +526,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I4 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I4">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr8"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Confiture d&apos;abricots</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2 cuillères à soupe</ont:quantite>
@@ -517,7 +537,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I5 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I5">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr7"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Raisins secs</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">50g</ont:quantite>
@@ -528,7 +548,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I6 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I6">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr6"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Abricots secs</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">100g, hachés</ont:quantite>
@@ -539,7 +559,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I7 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I7">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr3"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oignons</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">2, hachés</ont:quantite>
@@ -550,7 +570,7 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I8 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I8">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr2"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lait</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">250ml</ont:quantite>
@@ -561,10 +581,22 @@ C&apos;est le moment idéal pour visiter les régions viticoles du Cap-Occidenta
     <!-- http://www.co-ode.org/ontologies/ont.owl#I9 -->
 
     <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#I9">
-        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
         <ont:produitTypique rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Nutr1"/>
         <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chapelure</ont:nom>
         <ont:quantite rdf:datatype="http://www.w3.org/2001/XMLSchema#string">50g</ont:quantite>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Ingredient3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#Ingredient3">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodIngredient"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/owl/owlapi/turtle#dishes"/>
+        <ont:isFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Region1"/>
+        <ont:hasImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/curry.jpg</ont:hasImage>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Curry</ont:nom>
     </owl:NamedIndividual>
     
 
@@ -783,6 +815,50 @@ Assaisonnez avec du sel et du poivre.
 Remplissez le pain creux avec le curry.
 Garnissez avec la coriandre, les oignons rouges, les tomates, le chutney, les samoussas et les frites (facultatif).
 Servez chaud et dégustez !</ont:hasDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ingredient -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#ingredient">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodIngredient"/>
+        <ont:isFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Region1"/>
+        <ont:hasImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/SouthDAfrican-Ingredient/Masala.jpg</ont:hasImage>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maasla</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ingredient1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#ingredient1">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodIngredient"/>
+        <ont:isFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Region1"/>
+        <ont:hasImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/SouthDAfrican-Ingredient/Rooibos.jpg</ont:hasImage>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rooibos</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ingredient2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#ingredient2">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodIngredient"/>
+        <ont:isFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Region1"/>
+        <ont:hasImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/SouthDAfrican-Ingredient/Curcuma.jpg</ont:hasImage>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Curcuma</ont:nom>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ingredient4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.co-ode.org/ontologies/ont.owl#ingredient4">
+        <rdf:type rdf:resource="http://www.co-ode.org/ontologies/ont.owl#FoodIngredient"/>
+        <ont:isFrom rdf:resource="http://www.co-ode.org/ontologies/ont.owl#Region1"/>
+        <ont:hasImage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/SouthDAfrican-Ingredient/tomate.jpg</ont:hasImage>
+        <ont:nom rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tomate</ont:nom>
     </owl:NamedIndividual>
     
 

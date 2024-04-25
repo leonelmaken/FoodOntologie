@@ -3,19 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     function getAllMeals() {
         const sparqlQuery = `
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
-        
-        SELECT DISTINCT ?nom ?description ?technique ?origine ?image
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+        SELECT ?plat ?nom ?description ?image ?origine
         WHERE {
-          ?element rdf:type ont:Foods ;
-                   ont:hasImage ?image .
-          OPTIONAL { ?element ont:nom ?nom }
-          OPTIONAL { ?element ont:description ?description }
-          OPTIONAL { ?element ont:estPrepareAvec ?technique }
-          OPTIONAL { ?element ont:isFrom ?origine }
+          ?plat rdf:type ont:dishes ;
+           ont:nom ?nom ;
+           ont:description ?description ;
+           ont:hasImage ?image .
+        OPTIONAL {
+        ?plat ont:isFrom ?origine .
         }
-        
+        }
         `;
         
         const sparqlEndpoint = 'http://localhost:3030/SUDAFRICA/query';
@@ -49,12 +49,27 @@ document.addEventListener('DOMContentLoaded', function() {
                     description.textContent = food.description.value;
                     cardBody.appendChild(description);
 
-                    const detailsButton = document.createElement('a');
-                    detailsButton.classList.add('btn', 'btn-primary');
-                    detailsButton.href = '#'; // Ajoutez le lien de détails ici
-                    detailsButton.textContent = 'Details';
-                    cardBody.appendChild(detailsButton);
+                    const actionIcons = document.createElement('div');
+                    actionIcons.classList.add('action-icons');
 
+                    // Ajout de l'icône de suppression
+                    const deleteIcon = document.createElement('i');
+                    deleteIcon.classList.add('fas', 'fa-trash-alt', 'delete-icon');
+                    deleteIcon.addEventListener('click', function() {
+                        deleteMeal(food.nom.value); // Appeler la fonction de suppression du plat
+                    });
+                    actionIcons.appendChild(deleteIcon);
+
+                    // Ajout de l'icône d'édition
+                    const editIcon = document.createElement('i');
+                    editIcon.classList.add('fas', 'fa-edit', 'edit-icon');
+                    // Ajouter un gestionnaire d'événements pour l'édition du plat
+                    editIcon.addEventListener('click', function() {
+                        editMeal(food.nom.value); // Appeler la fonction pour éditer le plat
+                    });
+                    actionIcons.appendChild(editIcon);
+
+                    cardBody.appendChild(actionIcons);
                     foodCard.appendChild(cardBody);
                     foodCardsContainer.appendChild(foodCard);
                 });
@@ -67,10 +82,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Fonction pour supprimer un plat
+    function deleteMeal(nomPlat) {
+        const sparqlQuery = `
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    
+            DELETE WHERE {
+              ?plat rdf:type ont:dishes ;
+                    ont:nom "${nomPlat}"^^xsd:string ;
+                    ont:description ?description ;
+                    ont:hasImage ?image .
+            }
+        `;
+        
+        const sparqlEndpoint = 'http://localhost:3030/SUDAFRICA/update';
+    
+        // Définition de l'en-tête Content-Type pour spécifier le format des données
+        const headers = {
+            'Content-Type': 'application/sparql-update'
+        };
+    
+        // Configuration de la requête fetch avec la méthode POST
+        const fetchOptions = {
+            method: 'POST',
+            headers: headers,
+            body: sparqlQuery // Corps de la requête contenant la requête SPARQL
+        };
+    
+        // Envoi de la requête fetch
+        fetch(sparqlEndpoint, fetchOptions)
+        .then(response => {
+            // Vérification de la réponse HTTP
+            if (!response.ok) {
+                throw new Error('La requête SPARQL DELETE a échoué.');
+            }
+            console.log(`Le plat "${nomPlat}" a été supprimé avec succès.`);
+            getAllMeals(); // Recharger la liste des plats après la suppression
+        })
+        .catch(error => {
+            console.error('Erreur lors de la suppression du plat:', error);
+        });
+    }
+    
+
+    // Fonction pour éditer un plat
+    function editMeal(nomPlat) {
+        // Ajoutez ici le code pour l'édition du plat
+        console.log(`Édition du plat "${nomPlat}".`);
+    }
+
     // Ajouter un gestionnaire d'événements pour le lien "All Foods"
     const showMealsLink = document.getElementById('show-meals');
     showMealsLink.addEventListener('click', function(event) {
-        event.preventDefault(); // Empêcher le comportement par défaut du lien
+        event.preventDefault(); // Empêcher le comportement par défaut du
+// Empêcher le comportement par défaut du lien
         getAllMeals(); // Appeler la fonction pour récupérer et afficher tous les plats
     });
 });

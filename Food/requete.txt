@@ -66,46 +66,36 @@ WHERE {
   ?technique ont:description ?technique_description .
 }
 /************************requete pour ajouter un plat****************/
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 INSERT DATA
 {
-    ont:Plat3 rdf:type ont:Foods ;
-             ont:estComposeDe ont:I1, ont:I2 ;
-             ont:estPrepareAvec ont:Technique3 ;
-             ont:isFrom ont:Region1 ;
-             ont:description "Patisserie originaire d'Indonésie"^^xsd:string ;
-             ont:nom "SultanaCake"^^xsd:string ;
-             ont:hasImage <file:///home/leonelmaken/Documents/WebSemantique/Food/images/sultana%20cake.jpg> .
-}
-/***********************retourne tous les nouveaux plats ajoutés dans la BD**************/
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+    _:foodInstance rdf:type ont:FoodComponant .
 
-SELECT DISTINCT ?plat ?nom ?description ?image
-WHERE {
-  ?plat rdf:type ont:Foods.
-  OPTIONAL { ?plat ont:nom ?nom }
-  OPTIONAL { ?plat ont:description ?description }
-  OPTIONAL { ?plat ont:hasImage ?image }
+    ont:Waterblommetjie_Bredie rdf:type ont:dishes ;
+                 ont:estPrepareAvec ont:Technique1 ;
+                 ont:isFrom ont:region1 ;
+                 ont:description "Un hachis de viande épicé recouvert d'une crème d'oeufs et de lait"^^xsd:string ;
+                 ont:nom "Waterblommetjie Bredie"^^xsd:string ;
+                 ont:hasImage "https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/Waterblommetjie%20Bredie.jpg"^^xsd:string ;
+                 ont:estComposeDe _:foodInstance .
 }
-/*****************recherche un plat à partir de son plat******************/
+/*****************recherche un plat à partir de son nom******************/
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?plat ?ingredient ?technique ?region ?description ?image
+SELECT ?nom ?image ?description ?technique ?region
 WHERE {
-  ?plat rdf:type ont:Foods ;
-        ont:nom "SultanaCake"^^xsd:string ;
-        ont:estComposeDe ?ingredient ;
-        ont:estPrepareAvec ?technique ;
-        ont:isFrom ?region ;
-        ont:description ?description ;
-        ont:hasImage ?image .
+  ?dishes rdf:type ont:dishes .
+  ?dishes ont:nom "Waterblommetjie Bredie"^^xsd:string .
+  ?dishes ont:nom ?nom .
+  ?dishes ont:hasImage ?image .
+  ?dishes ont:description ?description .
+  ?dishes ont:estPrepareAvec ?technique .
+  ?dishes ont:isFrom ?region .
 }
 /********************************affiche les classe de mon ontologie****************/
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -123,26 +113,27 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 INSERT DATA
 {
-    ont:Avocado rdf:type ont:Ingredient ;
-                ont:nom "Avocat"^^xsd:string ;
-                ont:description "Fruit en forme de poire, avec une peau verte ou noire, une chair tendre et crémeuse et un noyau central. Il est souvent utilisé dans la cuisine pour sa texture riche et son goût doux."^^xsd:string ;
-                ont:hasImage <file:///home/leonelmaken/Documents/WebSemantique/Food/images/Avocado.jpg> ;
-                ont:origine "Originaire d'Amérique centrale et du Sud, mais maintenant cultivé dans de nombreuses régions tropicales et subtropicales du monde entier."^^xsd:string ;
-                ont:saison "Disponible toute l'année."^^xsd:string .
+    _:ingredientObject rdf:type ont:IngredientObject .
+
+    _:ingredientInstance rdf:type ont:FoodIngredient ;
+                         ont:hasName "Butternut squash."^^xsd:string ;
+                         ont:hasDescription "Le butternut squash, également connu sous le nom de courge musquée, courge butternut ou courge gramma en Australie et en Nouvelle-Zélande, est un type de courge d'hiver qui pousse sur une vigne"^^xsd:string ;
+                         ont:hasImage "https://github.com/jiofidelus/tsotsa/blob/main/TSOTSAImg_dataset/South%20Africa/SouthDAfrican-Ingredient/Butternut%20squash.jpg"^^xsd:anyURI ;
+                         ont:hasOrigin "SUD"^^xsd:string ;
+                         ont:isInstanceOf _:ingredientObject .
 }
 /********************************recherche un ingredient**************************/
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT ?ingredient ?description ?image ?origine ?saison
+SELECT ?nom ?image ?regionOrigine
 WHERE {
-  ?ingredient rdf:type ont:Ingredient ;
-              ont:nom "Avocat"^^xsd:string ;
-              ont:description ?description ;
+  ?ingredient rdf:type ont:FoodIngredient ;
+              ont:nom ?nom ;
               ont:hasImage ?image ;
-              ont:origine ?origine ;
-              ont:saison ?saison .
+              ont:isFrom ?regionOrigine .
+  FILTER (?nom = "tomate"^^xsd:string)
 }
 /***********************************lister les ingredients d'un plat***********/
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -252,5 +243,151 @@ WHERE {
           ont:hasImage ?image .
 }
 ​
+/**********************************supprimer un élément de la BD******************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE WHERE {
+  ?ingredient rdf:type ont:Ingredient ;
+              ont:nom "Piment"^^xsd:string .
+}
+/******************************rechercher un FoodIngredient*********************************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?nom ?origine ?image ?description
+WHERE {
+  ?ingredient rdf:type ont:FoodIngredient ;
+              ont:hasName ?nom ;
+              ont:hasOrigin ?origine ;
+              ont:hasImage ?image ;
+              ont:hasDescription ?description .
+  FILTER (str(?nom) = "oignons")
+}
+/*****************************************éffectuer toutes les recherches*************************************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    
+    SELECT ?nom ?description ?image
+    WHERE {
+      {
+        ?person rdf:type ont:Person ;
+                ont:nom ?nom ;
+                ont:hasImage ?image .
+        FILTER (STR(?nom) = ""^^xsd:string)
+      }
+      UNION
+      { 
+        ?plat rdf:type ont:dishes ;
+        ont:nom ?nom ;
+        ont:description ?description ;
+        ont:hasImage ?image .
+  FILTER (STR(?nom) = ""^^xsd:string)
+      }
+    UNION
+    {
+  ?ingredient rdf:type ont:FoodIngredient ;
+              ont:hasName ?nom ;
+              ont:hasOrigin ?origine ;
+              ont:hasImage ?image ;
+              ont:hasDescription ?description .
+  FILTER (str(?nom) = "oignons")
+  }
+    }
+/**************************************************retourne tous les dishes**********************************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?plat ?nom ?description ?image ?origine
+WHERE {
+  ?plat rdf:type ont:dishes ;
+        ont:nom ?nom ;
+        ont:description ?description ;
+        ont:hasImage ?image .
+  OPTIONAL {
+    ?plat ont:isFrom ?origine .
+  }
+}
+/**************************************************retourne les inférences************************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+
+SELECT DISTINCT ?s ?p ?o
+WHERE {
+  ?s ?p ?o .
+  FILTER NOT EXISTS {
+    ?s rdf:type ?type .
+    FILTER (?type IN (ont:Person, ont:dishes, ont:FoodIngredient))
+  }
+}
+/****************************************retourne toutes les sous classes **************************************************/
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22/rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?subClass
+WHERE {
+  ?class a owl:Class.
+   ?subClass rdfs:subClassOf ?class.
+}
+/***************************************************retourne toutes les classes*************************************/
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT DISTINCT ?class
+WHERE {
+  ?class a owl:Class .
+  FILTER NOT EXISTS {
+    ?class rdfs:subClassOf ?superClass .
+  }
+}
+/*******************************************retourne toutes les sous classes de la classe Foods*************************************************/
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?subClass
+WHERE {
+  ?subClass rdfs:subClassOf* <http://www.semanticweb.org/owl/owlapi/turtle#Foods> .
+  FILTER (?subClass != <http://www.semanticweb.org/owl/owlapi/turtle#Foods>)
+}
+/*********************************************retourne toutes les sous classes de la classe Person***************************************/
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?subClass
+WHERE {
+  ?subClass rdfs:subClassOf* <http://www.co-ode.org/ontologies/ont.owl#Person> .
+  FILTER (?subClass != <http://www.co-ode.org/ontologies/ont.owl#Person>)
+}
+/**********************************************supprimer un plat**********************************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE WHERE {
+  ?plat rdf:type ont:dishes ;
+        ont:nom "Skokiaan"^^xsd:string ;
+        ont:description ?description ;
+        ont:hasImage ?image .
+}
+/************************************modifie les données d'un plat******************************/
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ont: <http://www.co-ode.org/ontologies/ont.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+DELETE {
+  ?plat ont:description ?ancienneDescription .
+} INSERT {
+  ?plat ont:description "Nouvelle description du plat" .
+} WHERE {
+  ?plat rdf:type ont:dishes ;
+        ont:nom "NomDuPlat"^^xsd:string ;
+        ont:description ?ancienneDescription .
+}/*****************************************modifie les données d'un ingredient********************************************/
+
 
 

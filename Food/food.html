@@ -76,6 +76,59 @@
     font-size: 1.5rem; /* Taille de police */
     text-align: center; /* Alignement au centre */
 }
+/* Styles pour les boutons */
+.sub-class-button {
+    display: block; /* Afficher les boutons en tant que blocs pour les rendre responsifs */
+    width: 100%; /* Largeur de 100% pour occuper toute la largeur disponible */
+    margin-top: 5px; /* Marge supérieure de 5 pixels */
+    margin-bottom: 5px; /* Marge inférieure de 5 pixels */
+    padding: 10px; /* Ajouter de l'espace à l'intérieur des boutons */
+    /* Ajoutez d'autres styles personnalisés au besoin */
+}
+
+/* Animation pour les boutons */
+.sub-class-button {
+    opacity: 0; /* Rendre les boutons initialement transparents */
+    transition: opacity 0.5s ease-in-out; /* Animation de transition pour l'opacité */
+}
+/* Ajout de barres de défilement verticales au conteneur des cartes des aliments */
+#food-section .card-columns {
+    overflow-y: auto; /* Activer la barre de défilement verticale */
+    max-height: 500px; /* Hauteur maximale du conteneur avec défilement */
+}
+
+/* Animation pour les icônes des actions */
+.action-icons i {
+    margin: 0 5px; /* Marge entre les icônes pour les séparer */
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s; /* Ajout d'une transition d'animation */
+}
+
+/* Animation au survol des icônes */
+.action-icons i:hover {
+    transform: translateX(5px); /* Décalage de 5 pixels vers la droite */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); /* Ombre au survol */
+}
+
+/* Ajoutez une marge entre les icônes de suppression et d'édition */
+.delete-icon,
+.edit-icon {
+    margin-right: 10px; /* Ajustez la valeur selon vos préférences */
+}
+
+/* Animation pour les icônes de suppression et d'édition */
+.delete-icon,
+.edit-icon {
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation de transition pour le déplacement et l'ombre */
+}
+
+/* Animation au survol des icônes */
+.delete-icon:hover,
+.edit-icon:hover {
+    transform: translateX(5px); /* Décalage de 5 pixels vers la droite */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75); /* Ombre au survol */
+}
 
     </style>
 </head>
@@ -152,17 +205,15 @@
                     <!-- Formulaire pour saisir les requêtes SPARQL -->
                     <form id="sparql-form">
                         <div class="form-group">
-                            <div class="form-group">
-                                <label for="operation-input">Type d'opération (SELECT, INSERT, DELETE) :</label>
-                                <input type="text" class="form-control" id="operation-input">
-                            </div>
-                            
+                            <label for="operation-input">Type d'opération (SELECT, INSERT, DELETE) :</label>
+                            <input type="text" class="form-control" id="operation-input">
+                        </div>
                         <div class="form-group">
                             <label for="query-input">Entrez votre requête SPARQL :</label>
                             <textarea class="form-control" id="query-input" rows="5"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Exécuter la requête</button>
-                    </form>
+                    </form>                    
                 </div>
             </div>
             <div class="row mt-4">

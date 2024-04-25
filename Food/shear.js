@@ -39,8 +39,8 @@ function searchInJena(searchTerm) {
         FILTER (STR(?nom) = "${searchTerm}"^^xsd:string)
       }
       UNION
-      {
-        ?plat rdf:type ont:Foods ;
+      { 
+        ?plat rdf:type ont:dishes ;
               ont:nom ?nom ;
               ont:description ?description ;
               ont:hasImage ?image .
@@ -49,11 +49,16 @@ function searchInJena(searchTerm) {
       UNION
       {
         ?ingredient rdf:type ont:Ingredient ;
-                   ont:nom ?nom ;
-                   ont:hasImage ?image .
-        FILTER (STR(?nom) = "${searchTerm}"^^xsd:string)
+              ont:nom ?nom ;
+              ont:description ?description ;
+              ont:hasImage ?image ;
+              ont:saison ?saison ;
+              ont:origine ?origine .
+    FILTER (STR(?nom) = "${searchTerm}"^^xsd:string)
       }
     }
+    
+
     `;
 
     // Endpoint SPARQL
